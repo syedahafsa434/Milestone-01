@@ -1,0 +1,208 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume Builder</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #93bbf7;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            color: #180556;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #82bdf8;
+        }
+        
+        p {
+            text-align: center;
+            color: #f4f9ff;
+            font-size: 1.1rem;
+        }
+        
+        /* Form field styling */
+        label {
+            font-weight: 500;
+            display: block;
+            margin-top: 25px;
+            font-size: 1rem;
+            color: #09243f;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #4a90e2;
+            background-color: #ffffff;
+            outline: none;
+        }
+        
+        textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+        /* Button */
+        button {
+            margin-top: 30px;
+            width: 100%;
+            padding: 15px;
+            background-color: #170446;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #46af15;
+        }
+
+        /* Score Card */
+        .score-card {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border: 2px solid #bdc3c7;
+            border-radius: 12px;
+            color: #34495e;
+            display: none;
+        }
+
+        .score-card strong {
+            font-size: 1.2rem;
+            color: #4a90e2;
+        }
+
+        /* Small visual elements */
+        .underline {
+            width: 50px;
+            height: 3px;
+            background-color: #0b0b48;
+            margin: 0 auto 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Interactive Resume Builder</h1>
+    <div class="underline"></div>
+    <p>Fill out your details below to create a beautiful, professional resume.</p>
+
+    Personal Information
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your full name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email address">
+
+    <label for="linkedin">LinkedIn Profile:</label>
+    <input type="url" id="linkedin" placeholder="Enter your LinkedIn profile URL">
+
+    Objective
+    <label for="objective">Career Objective / Summary:</label>
+    <textarea id="objective" rows="3" placeholder="Write your professional summary"></textarea>
+
+    <!-- Education -->
+    <!-- <label for="education">Education:</label>
+    <textarea id="education" rows="3" placeholder="List your degrees and institutions"></textarea> -->
+
+    <!-- Work Experience -->
+    <!-- <label for="experience">Work Experience:</label>
+    <textarea id="experience" rows="4" placeholder="List your work experience with job title, company, and achievements"></textarea> -->
+
+    <!-- Skills
+    <label for="skills">Skills:</label>
+    <textarea id="skills" rows="2" placeholder="List your technical and soft skills"></textarea> -->
+
+    <!-- Projects -->
+    <!-- <label for="projects">Certifications & Projects:</label>
+    <textarea id="projects" rows="3" placeholder="List your relevant certifications and key projects"></textarea>
+
+    <button onclick="generateResume()">Generate Resume & Score</button> -->
+
+    <!-- Scoring Breakdown -->
+    <!-- <div class="score-card" id="score-card">
+        <h2>Resume Score Breakdown</h2>
+        <p><strong>Completeness:</strong> <span id="completeness-score"></span>%</p>
+        <p><strong>Relevance:</strong> <span id="relevance-score"></span>%</p>
+        <p><strong>Clarity:</strong> <span id="clarity-score"></span>%</p>
+        <p><strong>Consistency:</strong> <span id="consistency-score"></span>%</p>
+        <p><strong>Originality:</strong> <span id="originality-score"></span>%</p>
+    </div>
+
+</div> -->
+
+<!-- <script>
+    function generateResume() {
+        let completenessScore = 0;
+        let relevanceScore = 80;  // Placeholder
+        let clarityScore = 90;     // Placeholder
+        let consistencyScore = 85; // Placeholder
+        let originalityScore = 95; // Placeholder
+
+        let name = document.getElementById('name').value.trim();
+        let email = document.getElementById('email').value.trim();
+        let objective = document.getElementById('objective').value.trim();
+        let education = document.getElementById('education').value.trim();
+        let experience = document.getElementById('experience').value.trim();
+        let skills = document.getElementById('skills').value.trim();
+        let projects = document.getElementById('projects').value.trim();
+
+        let filledFields = [name, email, objective, education, experience, skills, projects].filter(field => field !== '').length;
+        let totalFields = 7;
+
+        completenessScore = (filledFields / totalFields) * 100;
+
+        document.getElementById('completeness-score').innerText = completenessScore.toFixed(0);
+        document.getElementById('relevance-score').innerText = relevanceScore;
+        document.getElementById('clarity-score').innerText = clarityScore;
+        document.getElementById('consistency-score').innerText = consistencyScore;
+        document.getElementById('originality-score').innerText = originalityScore;
+
+        document.getElementById('score-card').style.display = 'block';
+    }
+</script>
+
+</body>
+</html> 
